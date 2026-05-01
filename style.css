@@ -10,8 +10,9 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: "english", sans-serif;
-  font-weight: 400;
+font-family: "english", sans-serif;
+font-weight: 400;
+font-style: normal;  font-weight: 400;
   font-style: normal;
   overflow: hidden;
 }
@@ -19,9 +20,6 @@ body {
 #page-wrapper {
   position: relative;
   width: min(320px, 80vw);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #card-wrapper {
@@ -55,51 +53,52 @@ body {
   pointer-events: none;
 }
 
+/* Text sits absolutely over the empty bottom portion of the card */
 #subtitle {
-  color: #f39ab3;
+  position: absolute;
+  bottom: 14%;
+  left: 0;
+  width: 100%;
+  color: #c9184a;
   font-size: 1rem;
   text-align: center;
   letter-spacing: 0.05em;
   line-height: 1.6;
-  margin-top: 1rem;
-  margin-bottom: 5%;
+  z-index: 20;
+  pointer-events: none;
 }
 
 #hint {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
   font-family: "westsac", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #eca9f2;
+  color: #e05c8a;
   font-size: 1rem;
+  text-align: center;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-top: 0.5rem;
-  min-height: 1em;
+  z-index: 20;
+  pointer-events: none;
 }
 
 #message-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  min-height: 100dvh;
+  inset: 0;
   background: #CC88B6;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.6s ease, visibility 0.6s ease;
-  padding-top: max(2rem, env(safe-area-inset-top));
-  padding-bottom: max(2rem, env(safe-area-inset-bottom));
-  padding-left: 2rem;
-  padding-right: 2rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  padding: 2rem;
 }
 
 #message-overlay.show {
@@ -112,7 +111,6 @@ body {
   max-width: 340px;
   width: 100%;
   text-align: center;
-  padding: 1.5rem 0;
 }
 
 #cat-img {
@@ -120,23 +118,29 @@ body {
   height: 160px;
   object-fit: cover;
   margin-bottom: 1.5rem;
+  position: static !important;
 }
 
 #message-box h1 {
   font-family: "westsac", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #b3123f;
-  font-size: 2.2rem;
+      color: #b3123f;
+
+  font-size: 1.5rem;
   margin-bottom: 0.8rem;
 }
 
 #message-box p {
-  font-family: "english", sans-serif;
-  font-weight: 400;
+font-family: "english", sans-serif;
+font-weight: 400;
+font-style: normal;  font-weight: 400;
   font-style: normal;
-  color: #56346a;
-  font-size: 1.2rem;
+  /* color: #664c76; */
+    color: #b3123f;
+      color: #56346a;
+
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
@@ -146,3 +150,34 @@ body {
   pointer-events: none;
   z-index: 99;
 }
+
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#subtitle {
+  color: #f39ab3;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  margin-top: 1rem;
+    margin-bottom: 5%; 
+
+}
+
+#hint {
+   font-family: "westsac", sans-serif;
+font-weight: 400;
+font-style: normal;
+  color: #eca9f2;
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  min-height: 1em;
+
+}
+
